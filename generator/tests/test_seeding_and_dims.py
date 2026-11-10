@@ -1,6 +1,6 @@
 from jff_gen.config import Config
 from jff_gen.context import Context
-from jff_gen.dimensions import build_dimensions
+from jff_gen.dimensions import DIMENSION_BUILDERS, build_dimensions
 from jff_gen.seeding import make_rng
 
 
@@ -42,3 +42,9 @@ def test_channels_split_origin_and_platform(ctx: Context) -> None:
     channels = ctx.dims.channels.set_index("channel_id")
     assert (channels.loc[channels["order_origin"] == "offline", "commission_rate"] == 0).all()
     assert (channels.loc[channels["order_origin"] == "online", "commission_rate"] > 0).all()
+
+
+def test_each_dimension_generator_runs_on_its_own(cfg: Config) -> None:
+    for name, builder in DIMENSION_BUILDERS.items():
+        frame = builder(cfg)
+        assert not frame.empty, name

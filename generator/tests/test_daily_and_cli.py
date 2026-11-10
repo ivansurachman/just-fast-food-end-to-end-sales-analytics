@@ -146,7 +146,7 @@ def test_every_refund_points_to_an_existing_order(clean_cfg: Config, tmp_path: P
 
 def test_cli_dims_and_generate(tmp_path: Path) -> None:
     out = str(tmp_path / "out")
-    assert main(["dims", "--out", out, "--branches", "5"]) == 0
+    assert main(["dim", "all", "--out", out, "--branches", "5"]) == 0
     assert (
         main(
             [
@@ -170,3 +170,9 @@ def test_cli_dims_and_generate(tmp_path: Path) -> None:
     assert (root / "dimensions" / "branches.csv").exists()
     assert (root / "orders" / "dt=2026-10-02" / "orders.csv").exists()
     assert (root / "_manifests" / "dt=2026-10-01" / "manifest.json").exists()
+
+
+def test_cli_writes_a_single_dimension_only(tmp_path: Path) -> None:
+    out = tmp_path / "out"
+    assert main(["dim", "menu_items", "--out", str(out)]) == 0
+    assert sorted(p.name for p in (out / "dimensions").iterdir()) == ["menu_items.csv"]
