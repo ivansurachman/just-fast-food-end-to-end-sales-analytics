@@ -1,0 +1,128 @@
+# Default simulation config. Every business assumption lives here, none in code.
+# Commission rates are synthetic placeholders, verify against real platform terms before quoting.
+seed: 42
+scale: 1.0            # multiplies order volume; use ~0.1 for development
+n_branches: 120
+branch_open_start: 2019-01-01
+branch_open_end: 2026-06-30
+
+cities:
+  - {name: Jakarta, region: Jabodetabek, timezone: Asia/Jakarta, weight: 18}
+  - {name: Bekasi, region: Jabodetabek, timezone: Asia/Jakarta, weight: 6}
+  - {name: Tangerang, region: Jabodetabek, timezone: Asia/Jakarta, weight: 6}
+  - {name: Depok, region: Jabodetabek, timezone: Asia/Jakarta, weight: 4}
+  - {name: Bogor, region: Jabodetabek, timezone: Asia/Jakarta, weight: 3}
+  - {name: Bandung, region: Jawa Lainnya, timezone: Asia/Jakarta, weight: 7}
+  - {name: Surabaya, region: Jawa Lainnya, timezone: Asia/Jakarta, weight: 7}
+  - {name: Semarang, region: Jawa Lainnya, timezone: Asia/Jakarta, weight: 4}
+  - {name: Yogyakarta, region: Jawa Lainnya, timezone: Asia/Jakarta, weight: 3}
+  - {name: Malang, region: Jawa Lainnya, timezone: Asia/Jakarta, weight: 3}
+  - {name: Medan, region: Sumatera, timezone: Asia/Jakarta, weight: 5}
+  - {name: Palembang, region: Sumatera, timezone: Asia/Jakarta, weight: 3}
+  - {name: Pekanbaru, region: Sumatera, timezone: Asia/Jakarta, weight: 2}
+  - {name: Bandar Lampung, region: Sumatera, timezone: Asia/Jakarta, weight: 2}
+  - {name: Pontianak, region: Kalimantan, timezone: Asia/Pontianak, weight: 2}
+  - {name: Balikpapan, region: Kalimantan, timezone: Asia/Makassar, weight: 2}
+  - {name: Banjarmasin, region: Kalimantan, timezone: Asia/Makassar, weight: 2}
+  - {name: Makassar, region: Sulawesi, timezone: Asia/Makassar, weight: 4}
+  - {name: Manado, region: Sulawesi, timezone: Asia/Makassar, weight: 2}
+  - {name: Denpasar, region: Bali-Nusa Tenggara, timezone: Asia/Makassar, weight: 3}
+  - {name: Mataram, region: Bali-Nusa Tenggara, timezone: Asia/Makassar, weight: 1}
+  - {name: Jayapura, region: Maluku-Papua, timezone: Asia/Jayapura, weight: 1}
+  - {name: Ambon, region: Maluku-Papua, timezone: Asia/Jayapura, weight: 1}
+
+regions:
+  Jabodetabek: {volume_mult: 1.15, online_share: 0.55}
+  Jawa Lainnya: {volume_mult: 1.00, online_share: 0.40}
+  Sumatera: {volume_mult: 0.92, online_share: 0.32}
+  Kalimantan: {volume_mult: 0.90, online_share: 0.30}
+  Sulawesi: {volume_mult: 0.88, online_share: 0.28}
+  Bali-Nusa Tenggara: {volume_mult: 0.95, online_share: 0.36}
+  Maluku-Papua: {volume_mult: 0.75, online_share: 0.22}
+
+channels:
+  - {channel_id: offline_dine_in, order_origin: offline, platform: none, service_type: dine_in, mix_weight: 0.65}
+  - {channel_id: offline_takeaway, order_origin: offline, platform: none, service_type: takeaway, mix_weight: 0.35}
+  - {channel_id: grabfood, order_origin: online, platform: grabfood, service_type: delivery, mix_weight: 0.40, commission_rate: 0.20, platform_ref_prefix: GRB}
+  - {channel_id: gofood, order_origin: online, platform: gofood, service_type: delivery, mix_weight: 0.38, commission_rate: 0.20, platform_ref_prefix: GOF}
+  - {channel_id: shopeefood, order_origin: online, platform: shopeefood, service_type: delivery, mix_weight: 0.22, commission_rate: 0.18, platform_ref_prefix: SHF}
+
+payment_mix_offline: {cash: 0.30, qris: 0.38, ewallet: 0.17, card: 0.15}
+
+menu:
+  - {menu_item_id: MI-001, item_name: Ayam Geprek Klasik, category: main, unit_price: 28000, unit_cost: 11000, popularity: 14}
+  - {menu_item_id: MI-002, item_name: Ayam Geprek Keju, category: main, unit_price: 33000, unit_cost: 13500, popularity: 10}
+  - {menu_item_id: MI-003, item_name: Nasi Ayam Crispy, category: main, unit_price: 26000, unit_cost: 10000, popularity: 13}
+  - {menu_item_id: MI-004, item_name: Rice Bowl Rendang, category: main, unit_price: 35000, unit_cost: 16000, popularity: 7}
+  - {menu_item_id: MI-005, item_name: Burger Sambal Matah, category: main, unit_price: 30000, unit_cost: 12000, popularity: 8}
+  - {menu_item_id: MI-006, item_name: Mie Goreng Spesial, category: main, unit_price: 24000, unit_cost: 8500, popularity: 6}
+  - {menu_item_id: MI-007, item_name: Ayam Bakar Madu, category: main, unit_price: 32000, unit_cost: 13000, popularity: 7}
+  - {menu_item_id: MI-008, item_name: Paket Hemat Geprek, category: main, unit_price: 38000, unit_cost: 15500, popularity: 9}
+  - {menu_item_id: MI-101, item_name: Kentang Balado, category: side, unit_price: 15000, unit_cost: 5000, popularity: 8}
+  - {menu_item_id: MI-102, item_name: Tahu Crispy, category: side, unit_price: 12000, unit_cost: 4000, popularity: 6}
+  - {menu_item_id: MI-103, item_name: Tempe Mendoan, category: side, unit_price: 10000, unit_cost: 3200, popularity: 5}
+  - {menu_item_id: MI-104, item_name: Nasi Putih, category: side, unit_price: 6000, unit_cost: 1800, popularity: 9}
+  - {menu_item_id: MI-105, item_name: Sayap Pedas, category: side, unit_price: 22000, unit_cost: 9000, popularity: 5}
+  - {menu_item_id: MI-201, item_name: Es Pisang Ijo, category: dessert, unit_price: 14000, unit_cost: 5000, popularity: 3}
+  - {menu_item_id: MI-202, item_name: Pisang Goreng Madu, category: dessert, unit_price: 13000, unit_cost: 4500, popularity: 3}
+  - {menu_item_id: MI-301, item_name: Es Teh Manis, category: beverage, unit_price: 8000, unit_cost: 1500, popularity: 18}
+  - {menu_item_id: MI-302, item_name: Es Jeruk, category: beverage, unit_price: 10000, unit_cost: 2500, popularity: 10}
+  - {menu_item_id: MI-303, item_name: Teh Tarik Dingin, category: beverage, unit_price: 14000, unit_cost: 3500, popularity: 6}
+  - {menu_item_id: MI-304, item_name: Air Mineral, category: beverage, unit_price: 5000, unit_cost: 1500, popularity: 8}
+  - {menu_item_id: MI-305, item_name: Es Kopi Susu Gula Aren, category: beverage, unit_price: 18000, unit_cost: 5500, popularity: 8}
+  - {menu_item_id: MI-306, item_name: Lemon Tea, category: beverage, unit_price: 12000, unit_cost: 2800, popularity: 5}
+
+promos:
+  - {promo_id: PRM-01, promo_name: Diskon Akhir Pekan 10%, discount_type: percent, discount_value: 10, min_order_amount: 40000, max_discount_amount: 15000, valid_from: 2026-01-01, valid_to: 2026-12-31, channels: [offline_dine_in, offline_takeaway], weekdays: [5, 6], use_probability: 0.20}
+  - {promo_id: PRM-02, promo_name: Potongan 10rb, discount_type: fixed, discount_value: 10000, min_order_amount: 60000, max_discount_amount: 10000, valid_from: 2026-01-01, valid_to: 2026-12-31, channels: [offline_dine_in, offline_takeaway, grabfood, gofood, shopeefood], weekdays: [], use_probability: 0.08}
+  - {promo_id: PRM-03, promo_name: Promo Grab 20%, discount_type: percent, discount_value: 20, min_order_amount: 30000, max_discount_amount: 25000, valid_from: 2026-01-01, valid_to: 2026-12-31, channels: [grabfood], weekdays: [], use_probability: 0.22}
+  - {promo_id: PRM-04, promo_name: Promo Gofood Hemat, discount_type: fixed, discount_value: 8000, min_order_amount: 35000, max_discount_amount: 8000, valid_from: 2026-01-01, valid_to: 2026-12-31, channels: [gofood], weekdays: [], use_probability: 0.20}
+  - {promo_id: PRM-05, promo_name: Promo Shopee 15%, discount_type: percent, discount_value: 15, min_order_amount: 30000, max_discount_amount: 20000, valid_from: 2026-01-01, valid_to: 2026-12-31, channels: [shopeefood], weekdays: [], use_probability: 0.25}
+  - {promo_id: PRM-06, promo_name: Gebyar Ulang Tahun 25%, discount_type: percent, discount_value: 25, min_order_amount: 50000, max_discount_amount: 30000, valid_from: 2026-10-01, valid_to: 2026-10-14, channels: [offline_dine_in, offline_takeaway, grabfood, gofood, shopeefood], weekdays: [], use_probability: 0.35}
+
+volume:
+  base_orders_per_branch_day: 1040   # calibrated so the mean over branches and weekdays is ~1000
+  weekday_factors: [0.92, 0.93, 0.95, 0.98, 1.08, 1.12, 1.02]   # Mon..Sun
+  noise_sigma: 0.08
+  size_tiers: {small: 0.65, medium: 1.0, large: 1.45}
+  size_tier_probs: {small: 0.30, medium: 0.50, large: 0.20}
+  cloud_kitchen_share: 0.12
+  cloud_kitchen_mult: 0.7
+
+time:
+  open_hour: 9
+  close_hour: 22
+  peaks:
+    offline_weekday: [{center: 12.5, sigma: 0.9, weight: 0.45}, {center: 19.0, sigma: 1.1, weight: 0.40}, {center: 15.5, sigma: 1.5, weight: 0.15}]
+    offline_weekend: [{center: 13.0, sigma: 1.2, weight: 0.40}, {center: 19.0, sigma: 1.3, weight: 0.45}, {center: 16.0, sigma: 1.8, weight: 0.15}]
+    online_weekday: [{center: 12.0, sigma: 0.9, weight: 0.35}, {center: 19.5, sigma: 1.2, weight: 0.55}, {center: 21.0, sigma: 0.8, weight: 0.10}]
+    online_weekend: [{center: 12.5, sigma: 1.2, weight: 0.30}, {center: 19.5, sigma: 1.3, weight: 0.55}, {center: 21.0, sigma: 1.0, weight: 0.15}]
+
+basket:
+  food_extra_lines_lambda: 0.9
+  max_food_lines: 4
+  beverage_attach_offline: 0.60
+  beverage_attach_online: 0.50
+  qty_probs: [0.85, 0.10, 0.05]
+
+lifecycle:
+  cancel_prob_online: 0.06
+  cancel_prob_offline: 0.01
+  refund_prob_online: 0.012
+  refund_prob_offline: 0.004
+  refund_lag_geometric_p: 0.4
+  refund_max_lag_days: 7
+  refund_extra_minutes_min: 10
+  refund_extra_minutes_max: 600
+
+defects:
+  enabled: true
+  duplicate_row_rate: 0.005
+  late_sync_branch_day_rate: 0.03
+  late_sync_cutoff_hour_min: 18
+  late_sync_cutoff_hour_max: 21
+  branch_dropout_rate: 0.002
+  dirty_payment_rate: 0.015
+  null_platform_ref_rate: 0.01
+  total_mismatch_rate: 0.005
+  unknown_menu_rate: 0.001
