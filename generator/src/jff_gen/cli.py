@@ -8,6 +8,7 @@ from .config import Config, load_config
 from .context import build_context
 from .daily import generate_range, write_dimensions
 from .dimensions import DIMENSION_BUILDERS
+from .profiling import build_profile
 from .sinks import Sink
 
 
@@ -39,6 +40,12 @@ def build_parser() -> argparse.ArgumentParser:
     gen.add_argument("--end", type=_parse_date, help="range end (inclusive)")
     gen.add_argument("--scale", type=float, help="order volume multiplier, e.g. 0.1 for dev")
     gen.add_argument("--clean", action="store_true", help="disable all injected defects")
+
+    prof = sub.add_parser("profile", help="profile a generated dataset (local path) as Markdown")
+    prof.add_argument(
+        "--data", required=True, type=Path, help="root folder holding the generated files"
+    )
+    prof.add_argument("--out", type=Path, help="write Markdown here instead of printing it")
     return parser
 
 
@@ -72,6 +79,16 @@ def main(argv: Sequence[str] | None = None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     parser = build_parser()
     args = parser.parse_args(argv)
+    if args.command == "profile":
+        try:
+            text = build_profile(args.data)
+        except FileNotFoundError as exc:
+            parser.error(str(exc))
+        if args.out:
+            args.out.write_text(text, encoding="utf-8", newline="\n")
+        else:
+            print(text)
+        return 0
     ctx = build_context(_apply_overrides(load_config(args.config), args))
     sink = Sink(args.out)
     if args.command == "dim":
