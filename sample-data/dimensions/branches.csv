@@ -1,0 +1,121 @@
+branch_id,branch_code,branch_name,city,region,timezone,outlet_type,size_tier,open_date
+1,B001,Just Fast Food Bandung 01,Bandung,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2025-12-15
+2,B002,Just Fast Food Medan 01,Medan,Sumatera,Asia/Jakarta,restaurant,medium,2024-07-16
+3,B003,Just Fast Food Yogyakarta 01,Yogyakarta,Jawa Lainnya,Asia/Jakarta,restaurant,small,2022-09-23
+4,B004,Just Fast Food Jakarta 01,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,medium,2023-01-13
+5,B005,Just Fast Food Tangerang 01,Tangerang,Jabodetabek,Asia/Jakarta,restaurant,medium,2020-01-21
+6,B006,Just Fast Food Semarang 01,Semarang,Jawa Lainnya,Asia/Jakarta,cloud_kitchen,medium,2024-07-30
+7,B007,Just Fast Food Denpasar 01,Denpasar,Bali-Nusa Tenggara,Asia/Makassar,restaurant,small,2019-05-20
+8,B008,Just Fast Food Palembang 01,Palembang,Sumatera,Asia/Jakarta,restaurant,medium,2020-05-03
+9,B009,Just Fast Food Bandar Lampung 01,Bandar Lampung,Sumatera,Asia/Jakarta,restaurant,small,2021-11-14
+10,B010,Just Fast Food Bandung 02,Bandung,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2020-12-12
+11,B011,Just Fast Food Semarang 02,Semarang,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2022-05-15
+12,B012,Just Fast Food Palembang 02,Palembang,Sumatera,Asia/Jakarta,restaurant,medium,2019-10-13
+13,B013,Just Fast Food Denpasar 02,Denpasar,Bali-Nusa Tenggara,Asia/Makassar,restaurant,small,2023-03-12
+14,B014,Just Fast Food Banjarmasin 01,Banjarmasin,Kalimantan,Asia/Makassar,restaurant,medium,2023-01-26
+15,B015,Just Fast Food Jakarta 02,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,small,2020-01-26
+16,B016,Just Fast Food Manado 01,Manado,Sulawesi,Asia/Makassar,restaurant,medium,2021-09-16
+17,B017,Just Fast Food Manado 02,Manado,Sulawesi,Asia/Makassar,restaurant,small,2025-05-09
+18,B018,Just Fast Food Jakarta 03,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,small,2024-09-06
+19,B019,Just Fast Food Manado 03,Manado,Sulawesi,Asia/Makassar,restaurant,medium,2019-09-14
+20,B020,Just Fast Food Bandung 03,Bandung,Jawa Lainnya,Asia/Jakarta,restaurant,small,2019-11-03
+21,B021,Just Fast Food Bandung 04,Bandung,Jawa Lainnya,Asia/Jakarta,restaurant,large,2023-10-19
+22,B022,Just Fast Food Jakarta 04,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,large,2021-07-18
+23,B023,Just Fast Food Manado 04,Manado,Sulawesi,Asia/Makassar,cloud_kitchen,large,2024-05-06
+24,B024,Just Fast Food Jakarta 05,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,medium,2021-10-03
+25,B025,Just Fast Food Jakarta 06,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,large,2023-07-30
+26,B026,Just Fast Food Jakarta 07,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,large,2020-06-02
+27,B027,Just Fast Food Denpasar 03,Denpasar,Bali-Nusa Tenggara,Asia/Makassar,restaurant,small,2019-04-10
+28,B028,Just Fast Food Jakarta 08,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,large,2022-09-06
+29,B029,Just Fast Food Medan 02,Medan,Sumatera,Asia/Jakarta,restaurant,medium,2024-02-18
+30,B030,Just Fast Food Jakarta 09,Jakarta,Jabodetabek,Asia/Jakarta,cloud_kitchen,small,2023-07-18
+31,B031,Just Fast Food Ambon 01,Ambon,Maluku-Papua,Asia/Jayapura,restaurant,medium,2021-11-05
+32,B032,Just Fast Food Yogyakarta 02,Yogyakarta,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2023-02-23
+33,B033,Just Fast Food Semarang 03,Semarang,Jawa Lainnya,Asia/Jakarta,restaurant,small,2019-08-04
+34,B034,Just Fast Food Jayapura 01,Jayapura,Maluku-Papua,Asia/Jayapura,cloud_kitchen,medium,2023-09-02
+35,B035,Just Fast Food Jakarta 10,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,large,2026-05-30
+36,B036,Just Fast Food Jakarta 11,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,small,2022-12-12
+37,B037,Just Fast Food Depok 01,Depok,Jabodetabek,Asia/Jakarta,restaurant,small,2023-01-10
+38,B038,Just Fast Food Palembang 03,Palembang,Sumatera,Asia/Jakarta,restaurant,medium,2020-10-18
+39,B039,Just Fast Food Jakarta 12,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,medium,2019-05-10
+40,B040,Just Fast Food Semarang 04,Semarang,Jawa Lainnya,Asia/Jakarta,restaurant,small,2022-06-08
+41,B041,Just Fast Food Surabaya 01,Surabaya,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2022-04-18
+42,B042,Just Fast Food Depok 02,Depok,Jabodetabek,Asia/Jakarta,restaurant,large,2022-05-21
+43,B043,Just Fast Food Bandung 05,Bandung,Jawa Lainnya,Asia/Jakarta,restaurant,small,2019-04-28
+44,B044,Just Fast Food Medan 03,Medan,Sumatera,Asia/Jakarta,restaurant,large,2024-01-07
+45,B045,Just Fast Food Jakarta 13,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,medium,2019-04-19
+46,B046,Just Fast Food Surabaya 02,Surabaya,Jawa Lainnya,Asia/Jakarta,restaurant,large,2019-05-22
+47,B047,Just Fast Food Medan 04,Medan,Sumatera,Asia/Jakarta,restaurant,medium,2025-04-04
+48,B048,Just Fast Food Jakarta 14,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,medium,2024-05-29
+49,B049,Just Fast Food Malang 01,Malang,Jawa Lainnya,Asia/Jakarta,restaurant,small,2025-12-26
+50,B050,Just Fast Food Makassar 01,Makassar,Sulawesi,Asia/Makassar,cloud_kitchen,medium,2023-10-21
+51,B051,Just Fast Food Pekanbaru 01,Pekanbaru,Sumatera,Asia/Jakarta,restaurant,medium,2026-01-28
+52,B052,Just Fast Food Balikpapan 01,Balikpapan,Kalimantan,Asia/Makassar,restaurant,small,2022-09-04
+53,B053,Just Fast Food Palembang 04,Palembang,Sumatera,Asia/Jakarta,restaurant,small,2020-01-18
+54,B054,Just Fast Food Bogor 01,Bogor,Jabodetabek,Asia/Jakarta,restaurant,small,2022-03-31
+55,B055,Just Fast Food Jakarta 15,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,medium,2019-10-17
+56,B056,Just Fast Food Jakarta 16,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,large,2025-11-16
+57,B057,Just Fast Food Jakarta 17,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,medium,2021-06-21
+58,B058,Just Fast Food Palembang 05,Palembang,Sumatera,Asia/Jakarta,restaurant,medium,2025-04-05
+59,B059,Just Fast Food Surabaya 03,Surabaya,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2023-04-02
+60,B060,Just Fast Food Jakarta 18,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,medium,2022-10-07
+61,B061,Just Fast Food Tangerang 02,Tangerang,Jabodetabek,Asia/Jakarta,restaurant,medium,2021-03-27
+62,B062,Just Fast Food Pekanbaru 02,Pekanbaru,Sumatera,Asia/Jakarta,cloud_kitchen,medium,2025-04-24
+63,B063,Just Fast Food Ambon 02,Ambon,Maluku-Papua,Asia/Jayapura,restaurant,medium,2020-03-24
+64,B064,Just Fast Food Jakarta 19,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,small,2023-12-03
+65,B065,Just Fast Food Bandung 06,Bandung,Jawa Lainnya,Asia/Jakarta,restaurant,large,2020-01-18
+66,B066,Just Fast Food Jakarta 20,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,large,2024-10-15
+67,B067,Just Fast Food Bandung 07,Bandung,Jawa Lainnya,Asia/Jakarta,cloud_kitchen,large,2022-02-13
+68,B068,Just Fast Food Tangerang 03,Tangerang,Jabodetabek,Asia/Jakarta,restaurant,medium,2019-04-16
+69,B069,Just Fast Food Manado 05,Manado,Sulawesi,Asia/Makassar,restaurant,small,2026-04-20
+70,B070,Just Fast Food Surabaya 04,Surabaya,Jawa Lainnya,Asia/Jakarta,restaurant,small,2020-02-03
+71,B071,Just Fast Food Bandung 08,Bandung,Jawa Lainnya,Asia/Jakarta,restaurant,large,2021-03-15
+72,B072,Just Fast Food Makassar 02,Makassar,Sulawesi,Asia/Makassar,restaurant,small,2019-02-11
+73,B073,Just Fast Food Tangerang 04,Tangerang,Jabodetabek,Asia/Jakarta,restaurant,small,2021-04-04
+74,B074,Just Fast Food Bekasi 01,Bekasi,Jabodetabek,Asia/Jakarta,restaurant,medium,2022-07-01
+75,B075,Just Fast Food Bogor 02,Bogor,Jabodetabek,Asia/Jakarta,restaurant,small,2020-05-27
+76,B076,Just Fast Food Tangerang 05,Tangerang,Jabodetabek,Asia/Jakarta,restaurant,small,2020-08-14
+77,B077,Just Fast Food Bekasi 02,Bekasi,Jabodetabek,Asia/Jakarta,restaurant,medium,2026-03-12
+78,B078,Just Fast Food Jakarta 21,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,small,2023-01-01
+79,B079,Just Fast Food Denpasar 04,Denpasar,Bali-Nusa Tenggara,Asia/Makassar,restaurant,medium,2021-02-23
+80,B080,Just Fast Food Jakarta 22,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,large,2026-05-11
+81,B081,Just Fast Food Depok 03,Depok,Jabodetabek,Asia/Jakarta,restaurant,medium,2025-11-17
+82,B082,Just Fast Food Malang 02,Malang,Jawa Lainnya,Asia/Jakarta,restaurant,small,2023-12-30
+83,B083,Just Fast Food Depok 04,Depok,Jabodetabek,Asia/Jakarta,cloud_kitchen,small,2020-03-06
+84,B084,Just Fast Food Makassar 03,Makassar,Sulawesi,Asia/Makassar,restaurant,small,2025-10-30
+85,B085,Just Fast Food Jakarta 23,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,small,2025-11-09
+86,B086,Just Fast Food Denpasar 05,Denpasar,Bali-Nusa Tenggara,Asia/Makassar,restaurant,small,2026-02-25
+87,B087,Just Fast Food Bandung 09,Bandung,Jawa Lainnya,Asia/Jakarta,restaurant,small,2022-09-05
+88,B088,Just Fast Food Bekasi 03,Bekasi,Jabodetabek,Asia/Jakarta,restaurant,small,2024-02-27
+89,B089,Just Fast Food Medan 05,Medan,Sumatera,Asia/Jakarta,restaurant,medium,2025-01-22
+90,B090,Just Fast Food Bogor 03,Bogor,Jabodetabek,Asia/Jakarta,cloud_kitchen,medium,2025-06-26
+91,B091,Just Fast Food Tangerang 06,Tangerang,Jabodetabek,Asia/Jakarta,restaurant,medium,2025-11-07
+92,B092,Just Fast Food Bandung 10,Bandung,Jawa Lainnya,Asia/Jakarta,cloud_kitchen,medium,2023-09-10
+93,B093,Just Fast Food Medan 06,Medan,Sumatera,Asia/Jakarta,restaurant,medium,2022-06-20
+94,B094,Just Fast Food Surabaya 05,Surabaya,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2025-08-29
+95,B095,Just Fast Food Semarang 05,Semarang,Jawa Lainnya,Asia/Jakarta,restaurant,small,2023-02-26
+96,B096,Just Fast Food Depok 05,Depok,Jabodetabek,Asia/Jakarta,restaurant,medium,2021-10-12
+97,B097,Just Fast Food Bandar Lampung 02,Bandar Lampung,Sumatera,Asia/Jakarta,restaurant,medium,2023-01-25
+98,B098,Just Fast Food Palembang 06,Palembang,Sumatera,Asia/Jakarta,cloud_kitchen,medium,2021-02-05
+99,B099,Just Fast Food Jakarta 24,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,small,2021-09-26
+100,B100,Just Fast Food Makassar 04,Makassar,Sulawesi,Asia/Makassar,restaurant,small,2024-10-10
+101,B101,Just Fast Food Medan 07,Medan,Sumatera,Asia/Jakarta,restaurant,medium,2020-09-04
+102,B102,Just Fast Food Depok 06,Depok,Jabodetabek,Asia/Jakarta,restaurant,medium,2022-06-26
+103,B103,Just Fast Food Denpasar 06,Denpasar,Bali-Nusa Tenggara,Asia/Makassar,restaurant,medium,2026-02-09
+104,B104,Just Fast Food Bekasi 04,Bekasi,Jabodetabek,Asia/Jakarta,restaurant,small,2021-03-27
+105,B105,Just Fast Food Pekanbaru 03,Pekanbaru,Sumatera,Asia/Jakarta,restaurant,large,2022-02-02
+106,B106,Just Fast Food Jakarta 25,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,medium,2023-09-05
+107,B107,Just Fast Food Surabaya 06,Surabaya,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2020-10-18
+108,B108,Just Fast Food Bandung 11,Bandung,Jawa Lainnya,Asia/Jakarta,restaurant,small,2022-04-17
+109,B109,Just Fast Food Jakarta 26,Jakarta,Jabodetabek,Asia/Jakarta,cloud_kitchen,medium,2025-04-27
+110,B110,Just Fast Food Depok 07,Depok,Jabodetabek,Asia/Jakarta,cloud_kitchen,large,2025-08-08
+111,B111,Just Fast Food Yogyakarta 03,Yogyakarta,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2026-06-07
+112,B112,Just Fast Food Surabaya 07,Surabaya,Jawa Lainnya,Asia/Jakarta,restaurant,large,2019-02-07
+113,B113,Just Fast Food Jakarta 27,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,medium,2023-02-01
+114,B114,Just Fast Food Surabaya 08,Surabaya,Jawa Lainnya,Asia/Jakarta,restaurant,large,2019-05-30
+115,B115,Just Fast Food Malang 03,Malang,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2022-02-19
+116,B116,Just Fast Food Jakarta 28,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,small,2023-11-05
+117,B117,Just Fast Food Jakarta 29,Jakarta,Jabodetabek,Asia/Jakarta,restaurant,large,2023-06-29
+118,B118,Just Fast Food Bandung 12,Bandung,Jawa Lainnya,Asia/Jakarta,restaurant,medium,2024-10-28
+119,B119,Just Fast Food Palembang 07,Palembang,Sumatera,Asia/Jakarta,cloud_kitchen,small,2024-09-27
+120,B120,Just Fast Food Bogor 04,Bogor,Jabodetabek,Asia/Jakarta,restaurant,large,2024-04-27

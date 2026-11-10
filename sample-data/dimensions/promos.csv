@@ -1,0 +1,7 @@
+promo_id,promo_name,discount_type,discount_value,min_order_amount,max_discount_amount,valid_from,valid_to,channel_scope,weekday_scope
+PRM-01,Diskon Akhir Pekan 10%,percent,10,40000,15000,2026-01-01,2026-12-31,offline_dine_in|offline_takeaway,5|6
+PRM-02,Potongan 10rb,fixed,10000,60000,10000,2026-01-01,2026-12-31,offline_dine_in|offline_takeaway|grabfood|gofood|shopeefood,
+PRM-03,Promo Grab 20%,percent,20,30000,25000,2026-01-01,2026-12-31,grabfood,
+PRM-04,Promo Gofood Hemat,fixed,8000,35000,8000,2026-01-01,2026-12-31,gofood,
+PRM-05,Promo Shopee 15%,percent,15,30000,20000,2026-01-01,2026-12-31,shopeefood,
+PRM-06,Gebyar Ulang Tahun 25%,percent,25,50000,30000,2026-10-01,2026-10-14,offline_dine_in|offline_takeaway|grabfood|gofood|shopeefood,

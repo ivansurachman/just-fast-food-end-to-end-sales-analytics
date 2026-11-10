@@ -1,0 +1,22 @@
+menu_item_id,item_name,category,unit_price,unit_cost,is_active
+MI-001,Ayam Geprek Klasik,main,28000,11000,True
+MI-002,Ayam Geprek Keju,main,33000,13500,True
+MI-003,Nasi Ayam Crispy,main,26000,10000,True
+MI-004,Rice Bowl Rendang,main,35000,16000,True
+MI-005,Burger Sambal Matah,main,30000,12000,True
+MI-006,Mie Goreng Spesial,main,24000,8500,True
+MI-007,Ayam Bakar Madu,main,32000,13000,True
+MI-008,Paket Hemat Geprek,main,38000,15500,True
+MI-101,Kentang Balado,side,15000,5000,True
+MI-102,Tahu Crispy,side,12000,4000,True
+MI-103,Tempe Mendoan,side,10000,3200,True
+MI-104,Nasi Putih,side,6000,1800,True
+MI-105,Sayap Pedas,side,22000,9000,True
+MI-201,Es Pisang Ijo,dessert,14000,5000,True
+MI-202,Pisang Goreng Madu,dessert,13000,4500,True
+MI-301,Es Teh Manis,beverage,8000,1500,True
+MI-302,Es Jeruk,beverage,10000,2500,True
+MI-303,Teh Tarik Dingin,beverage,14000,3500,True
+MI-304,Air Mineral,beverage,5000,1500,True
+MI-305,Es Kopi Susu Gula Aren,beverage,18000,5500,True
+MI-306,Lemon Tea,beverage,12000,2800,True

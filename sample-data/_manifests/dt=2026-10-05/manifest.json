@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-05",
+  "defects_enabled": true,
+  "dropped_branch_ids": [],
+  "expected_branches": 120,
+  "injected": {
+    "duplicate_item_rows": 18,
+    "duplicate_orders": 7,
+    "gross_mismatch": 6,
+    "late_orders_delayed_in": 15,
+    "late_orders_delayed_out": 33,
+    "payment_null": 8,
+    "payment_variant": 10,
+    "platform_ref_null": 14,
+    "unknown_menu_item": 6
+  },
+  "rows": {
+    "order_changes": 22,
+    "order_items": 5384,
+    "orders": 2201
+  },
+  "scale": 0.02,
+  "seed": 42
+}

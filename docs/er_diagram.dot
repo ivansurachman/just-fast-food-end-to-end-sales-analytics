@@ -1,0 +1,85 @@
+digraph gold {
+  rankdir=LR; splines=ortho; nodesep=0.45; ranksep=1.1;
+  node [shape=plain, fontname="Helvetica", fontsize=10];
+  edge [color="#5b6b7a", arrowsize=0.7];
+
+  fact_order [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#fff4e0">
+    <TR><TD BGCOLOR="#f0a030" COLSPAN="2"><B>fact_order</B> (grain: order)</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>PK</B></TD><TD ALIGN="LEFT">order_id</TD></TR>
+    <TR><TD ALIGN="LEFT">FK</TD><TD ALIGN="LEFT">date_key (local order date)</TD></TR>
+    <TR><TD ALIGN="LEFT">FK</TD><TD ALIGN="LEFT">branch_key</TD></TR>
+    <TR><TD ALIGN="LEFT">FK</TD><TD ALIGN="LEFT">channel_key</TD></TR>
+    <TR><TD ALIGN="LEFT">FK</TD><TD ALIGN="LEFT">promo_key</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">order_ts_local, order_ts_utc, hour_local</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">status_final (completed | cancelled | refunded)</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">refunded_at_local, source_file_date</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">gross_amount, discount_amount, net_amount</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">platform_commission_amount, cogs_amount</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">payment_method, platform_order_ref, dq_flags</TD></TR>
+  </TABLE>>];
+
+  fact_order_item [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#fff4e0">
+    <TR><TD BGCOLOR="#f0a030" COLSPAN="2"><B>fact_order_item</B> (grain: order line)</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>PK</B></TD><TD ALIGN="LEFT">order_id, line_no</TD></TR>
+    <TR><TD ALIGN="LEFT">FK</TD><TD ALIGN="LEFT">date_key</TD></TR>
+    <TR><TD ALIGN="LEFT">FK</TD><TD ALIGN="LEFT">branch_key</TD></TR>
+    <TR><TD ALIGN="LEFT">FK</TD><TD ALIGN="LEFT">menu_item_key</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">order_status_final (denormalized)</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">quantity, unit_price, line_amount</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">unit_cost, line_cogs</TD></TR>
+  </TABLE>>];
+
+  fact_branch_day [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#fff4e0">
+    <TR><TD BGCOLOR="#f0a030" COLSPAN="2"><B>fact_branch_day</B> (grain: branch x day)</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>PK</B></TD><TD ALIGN="LEFT">date_key, branch_key</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">is_expected (branch open that day)</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">orders_received, late_arrival_orders</TD></TR>
+  </TABLE>>];
+
+  fact_dq_daily [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#fff4e0">
+    <TR><TD BGCOLOR="#f0a030" COLSPAN="2"><B>fact_dq_daily</B> (grain: file day x entity x defect)</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>PK</B></TD><TD ALIGN="LEFT">file_date, entity, defect_type</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">rows_in, rows_flagged, rows_quarantined</TD></TR>
+  </TABLE>>];
+
+  dim_date [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#e8f1fb">
+    <TR><TD BGCOLOR="#5b9bd5" COLSPAN="2"><B>dim_date</B></TD></TR>
+    <TR><TD ALIGN="LEFT"><B>PK</B></TD><TD ALIGN="LEFT">date_key (YYYYMMDD)</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">date, year, month, day</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">weekday_number, weekday_name, is_weekend</TD></TR>
+  </TABLE>>];
+
+  dim_branch [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#e8f1fb">
+    <TR><TD BGCOLOR="#5b9bd5" COLSPAN="2"><B>dim_branch</B></TD></TR>
+    <TR><TD ALIGN="LEFT"><B>PK</B></TD><TD ALIGN="LEFT">branch_key</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">branch_code, branch_name, city, region</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">timezone, outlet_type, size_tier, open_date</TD></TR>
+  </TABLE>>];
+
+  dim_channel [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#e8f1fb">
+    <TR><TD BGCOLOR="#5b9bd5" COLSPAN="2"><B>dim_channel</B></TD></TR>
+    <TR><TD ALIGN="LEFT"><B>PK</B></TD><TD ALIGN="LEFT">channel_key</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">order_origin, platform, service_type</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">commission_rate</TD></TR>
+  </TABLE>>];
+
+  dim_promo [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#e8f1fb">
+    <TR><TD BGCOLOR="#5b9bd5" COLSPAN="2"><B>dim_promo</B> (+ NONE member)</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>PK</B></TD><TD ALIGN="LEFT">promo_key</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">promo_name, discount_type, discount_value</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">min_order_amount, max_discount_amount</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">valid_from, valid_to</TD></TR>
+  </TABLE>>];
+
+  dim_menu_item [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#e8f1fb">
+    <TR><TD BGCOLOR="#5b9bd5" COLSPAN="2"><B>dim_menu_item</B> (+ UNKNOWN member)</TD></TR>
+    <TR><TD ALIGN="LEFT"><B>PK</B></TD><TD ALIGN="LEFT">menu_item_key</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">item_name, category</TD></TR>
+    <TR><TD></TD><TD ALIGN="LEFT">unit_price, unit_cost, is_active</TD></TR>
+  </TABLE>>];
+
+  fact_order -> dim_date; fact_order -> dim_branch; fact_order -> dim_channel; fact_order -> dim_promo;
+  fact_order_item -> fact_order [style=dashed];
+  fact_order_item -> dim_menu_item; fact_order_item -> dim_date; fact_order_item -> dim_branch;
+  fact_branch_day -> dim_date; fact_branch_day -> dim_branch;
+}

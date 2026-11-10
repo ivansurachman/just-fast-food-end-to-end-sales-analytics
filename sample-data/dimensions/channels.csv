@@ -1,0 +1,6 @@
+channel_id,order_origin,platform,service_type,commission_rate
+offline_dine_in,offline,none,dine_in,0.0
+offline_takeaway,offline,none,takeaway,0.0
+grabfood,online,grabfood,delivery,0.2
+gofood,online,gofood,delivery,0.2
+shopeefood,online,shopeefood,delivery,0.18
