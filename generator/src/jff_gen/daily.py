@@ -9,6 +9,7 @@ import pandas as pd
 from .baskets import build_orders
 from .context import BranchInfo, Context
 from .defects import inject_row_defects, is_dropout, late_sync_cutoff
+from .dimensions import DIMENSION_BUILDERS
 from .plan import format_timestamps, make_order_ids, plan_branch_day, plan_order_hours
 from .schema import ORDER_CHANGES_COLUMNS
 from .sinks import Sink
@@ -123,6 +124,8 @@ def generate_range(ctx: Context, start: date, end: date, sink: Sink) -> list[dic
     return [generate_day(ctx, start + timedelta(days=i), sink) for i in range(days)]
 
 
-def write_dimensions(ctx: Context, sink: Sink) -> None:
-    for name, frame in ctx.dims.as_files().items():
-        sink.write_dimension(name, frame)
+def write_dimensions(ctx: Context, sink: Sink, table: str | None = None) -> None:
+    """Write one dimension table, or all of them when `table` is None."""
+    for name, builder in DIMENSION_BUILDERS.items():
+        if table in (None, name):
+            sink.write_dimension(name, builder(ctx.cfg))

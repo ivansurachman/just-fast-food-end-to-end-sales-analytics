@@ -7,6 +7,7 @@ from pathlib import Path
 from .config import Config, load_config
 from .context import build_context
 from .daily import generate_range, write_dimensions
+from .dimensions import DIMENSION_BUILDERS
 from .sinks import Sink
 
 
@@ -29,7 +30,8 @@ def build_parser() -> argparse.ArgumentParser:
     common.add_argument("--seed", type=int)
     common.add_argument("--branches", type=int, help="override number of branches")
 
-    sub.add_parser("dims", parents=[common], help="write dimension CSVs")
+    dim = sub.add_parser("dim", parents=[common], help="write one dimension CSV, or all")
+    dim.add_argument("table", choices=[*DIMENSION_BUILDERS, "all"])
 
     gen = sub.add_parser("generate", parents=[common], help="write daily transaction CSVs")
     gen.add_argument("--date", type=_parse_date, help="single date")
@@ -72,8 +74,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args(argv)
     ctx = build_context(_apply_overrides(load_config(args.config), args))
     sink = Sink(args.out)
-    if args.command == "dims":
-        write_dimensions(ctx, sink)
+    if args.command == "dim":
+        write_dimensions(ctx, sink, None if args.table == "all" else args.table)
         return 0
     start, end = _resolve_dates(parser, args)
     generate_range(ctx, start, end, sink)
