@@ -1,6 +1,6 @@
 # Data model (Check Point 1)
 
-Status: design for Mentoring 1. Layer details are provisional until the Phase 3 pipeline design is approved.
+Status: design for Mentoring 1.
 
 ![Gold star schema](er_diagram.png)
 
