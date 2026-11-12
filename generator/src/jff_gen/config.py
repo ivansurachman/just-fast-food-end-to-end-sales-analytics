@@ -1,10 +1,13 @@
 from datetime import date
 from importlib import resources
 from pathlib import Path
-from typing import Literal
+from typing import Annotated, Literal
 
 import yaml
-from pydantic import BaseModel, model_validator
+from pydantic import BaseModel, Field, model_validator
+
+Probability = Annotated[float, Field(ge=0, le=1)]
+PositiveFloat = Annotated[float, Field(gt=0)]
 
 
 class City(BaseModel):
@@ -16,7 +19,7 @@ class City(BaseModel):
 
 class Region(BaseModel):
     volume_mult: float
-    online_share: float
+    online_share: Probability
 
 
 class Channel(BaseModel):
@@ -49,7 +52,7 @@ class Promo(BaseModel):
     valid_to: date
     channels: list[str]
     weekdays: list[int]
-    use_probability: float
+    use_probability: Probability
 
 
 class Peak(BaseModel):
@@ -59,7 +62,7 @@ class Peak(BaseModel):
 
 
 class VolumeConfig(BaseModel):
-    base_orders_per_branch_day: int
+    base_orders_per_branch_day: Annotated[int, Field(gt=0)]
     weekday_factors: list[float]
     noise_sigma: float
     size_tiers: dict[str, float]
@@ -77,16 +80,16 @@ class TimeConfig(BaseModel):
 class BasketConfig(BaseModel):
     food_extra_lines_lambda: float
     max_food_lines: int
-    beverage_attach_offline: float
-    beverage_attach_online: float
+    beverage_attach_offline: Probability
+    beverage_attach_online: Probability
     qty_probs: list[float]
 
 
 class LifecycleConfig(BaseModel):
-    cancel_prob_online: float
-    cancel_prob_offline: float
-    refund_prob_online: float
-    refund_prob_offline: float
+    cancel_prob_online: Probability
+    cancel_prob_offline: Probability
+    refund_prob_online: Probability
+    refund_prob_offline: Probability
     refund_lag_geometric_p: float
     refund_max_lag_days: int
     refund_extra_minutes_min: int
@@ -95,21 +98,21 @@ class LifecycleConfig(BaseModel):
 
 class DefectConfig(BaseModel):
     enabled: bool
-    duplicate_row_rate: float
-    late_sync_branch_day_rate: float
+    duplicate_row_rate: Probability
+    late_sync_branch_day_rate: Probability
     late_sync_cutoff_hour_min: int
     late_sync_cutoff_hour_max: int
-    branch_dropout_rate: float
-    dirty_payment_rate: float
-    null_platform_ref_rate: float
-    total_mismatch_rate: float
-    unknown_menu_rate: float
+    branch_dropout_rate: Probability
+    dirty_payment_rate: Probability
+    null_platform_ref_rate: Probability
+    total_mismatch_rate: Probability
+    unknown_menu_rate: Probability
 
 
 class Config(BaseModel):
-    seed: int
-    scale: float
-    n_branches: int
+    seed: Annotated[int, Field(ge=0)]
+    scale: PositiveFloat
+    n_branches: Annotated[int, Field(ge=1)]
     branch_open_start: date
     branch_open_end: date
     cities: list[City]

@@ -4,6 +4,8 @@ from collections.abc import Sequence
 from datetime import date
 from pathlib import Path
 
+from pydantic import ValidationError
+
 from .config import Config, load_config
 from .context import build_context
 from .daily import generate_range, write_dimensions
@@ -50,16 +52,18 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def _apply_overrides(cfg: Config, args: argparse.Namespace) -> Config:
-    updates: dict[str, object] = {}
-    if args.seed is not None:
-        updates["seed"] = args.seed
-    if args.branches is not None:
-        updates["n_branches"] = args.branches
-    if getattr(args, "scale", None) is not None:
-        updates["scale"] = args.scale
+    """Apply CLI flags on top of the config and re-validate the result."""
+    data = cfg.model_dump()
+    for key, value in (
+        ("seed", args.seed),
+        ("n_branches", args.branches),
+        ("scale", getattr(args, "scale", None)),
+    ):
+        if value is not None:
+            data[key] = value
     if getattr(args, "clean", False):
-        updates["defects"] = cfg.defects.model_copy(update={"enabled": False})
-    return cfg.model_copy(update=updates)
+        data["defects"]["enabled"] = False
+    return Config.model_validate(data)
 
 
 def _resolve_dates(parser: argparse.ArgumentParser, args: argparse.Namespace) -> tuple[date, date]:
@@ -89,7 +93,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         else:
             print(text)
         return 0
-    ctx = build_context(_apply_overrides(load_config(args.config), args))
+    try:
+        cfg = _apply_overrides(load_config(args.config), args)
+    except ValidationError as exc:
+        details = "; ".join(f"{'.'.join(map(str, e['loc']))}: {e['msg']}" for e in exc.errors())
+        parser.error(f"invalid settings: {details}")
+    ctx = build_context(cfg)
     sink = Sink(args.out)
     if args.command == "dim":
         write_dimensions(ctx, sink, None if args.table == "all" else args.table)
