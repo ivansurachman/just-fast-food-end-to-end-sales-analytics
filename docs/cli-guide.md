@@ -96,7 +96,7 @@ Memory: `profile` loads the whole dataset, about 650 MB of RAM for the 45-day de
 
 ## Remote output
 
-`--out s3://bucket/prefix` writes through fsspec. Install the S3 driver first with `pip install s3fs`, and set credentials and the endpoint through fsspec or `s3fs` settings (verify the exact variable names).
+`--out s3://bucket/prefix` writes through fsspec. Install the S3 driver first with `pip install s3fs`, and set credentials and the endpoint through fsspec or `s3fs` settings (verify the exact variable names). `profile` does not read remote paths.
 
 ## Recipes
 
