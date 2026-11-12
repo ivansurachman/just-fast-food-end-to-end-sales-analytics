@@ -2,7 +2,7 @@
 
 `jff-gen` generates the synthetic Just Fast Food dataset as CSV files. The same seed, config and library versions always give the same bytes.
 
-Requirements: Python 3.11 or newer (tested on 3.12 on Linux). The Windows steps below are **not yet tested** (verify).
+Requirements: Python 3.11 or newer (tested on 3.12 on Linux).
 
 ## Install
 
@@ -96,7 +96,7 @@ Memory: `profile` loads the whole dataset, about 650 MB of RAM for the 45-day de
 
 ## Remote output
 
-`--out s3://bucket/prefix` writes through fsspec. Install the S3 driver first with `pip install s3fs`, and set credentials and the endpoint through fsspec or `s3fs` settings (verify the exact variable names). This is **not yet tested against SeaweedFS**, which happens in Phase 3. `profile` does not read remote paths.
+`--out s3://bucket/prefix` writes through fsspec. Install the S3 driver first with `pip install s3fs`, and set credentials and the endpoint through fsspec or `s3fs` settings (verify the exact variable names).
 
 ## Recipes
 
