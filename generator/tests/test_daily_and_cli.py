@@ -4,6 +4,8 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import pandas as pd
+import pytest
+from pydantic import ValidationError
 
 from jff_gen.cli import main
 from jff_gen.config import Config
@@ -176,3 +178,21 @@ def test_cli_writes_a_single_dimension_only(tmp_path: Path) -> None:
     out = tmp_path / "out"
     assert main(["dim", "menu_items", "--out", str(out)]) == 0
     assert sorted(p.name for p in (out / "dimensions").iterdir()) == ["menu_items.csv"]
+
+
+@pytest.mark.parametrize(
+    "flags",
+    [["--scale", "-1"], ["--scale", "0"], ["--branches", "0"], ["--seed", "-5"]],
+)
+def test_cli_rejects_invalid_numbers_with_usage_error(tmp_path: Path, flags: list[str]) -> None:
+    with pytest.raises(SystemExit) as exc:
+        main(["generate", "--date", "2026-10-01", "--out", str(tmp_path), *flags])
+    assert exc.value.code == 2
+    assert not list(tmp_path.iterdir())
+
+
+def test_config_rejects_probability_outside_zero_one(cfg: Config) -> None:
+    bad = cfg.model_dump()
+    bad["defects"]["duplicate_row_rate"] = 1.5
+    with pytest.raises(ValidationError):
+        Config.model_validate(bad)
