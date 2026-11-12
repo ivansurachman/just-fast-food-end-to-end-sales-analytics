@@ -1,7 +1,7 @@
 # Just Fast Food: sales analytics pipeline
 
 Bootcamp final project: end-to-end sales analytics for a fictional fast food chain, on generated data.
-This README is a stub for Check Point 1. The full README (setup per OS, architecture, demo) comes in Phase 4.
+This README is a stub for Check Point 1. The full README (setup per OS, architecture, demo) comes in December.
 
 ## Layout
 
