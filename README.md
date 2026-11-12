@@ -6,7 +6,7 @@ This README is a stub for Check Point 1. The full README (setup per OS, architec
 ## Layout
 
 - `generator/`: seeded synthetic data generator (Python CLI, tests)
-- `docs/`: data model, ER diagram, data profile, CLI guide (`cli-guide.md`)
+- `docs/`: data model, data dictionary, ER diagram, data profile, CLI guide (`cli-guide.md`)
 - `sample-data/`: seven days (2026-10-03 to 2026-10-09) at `--scale 0.02`, for review
 
 ## Generate data

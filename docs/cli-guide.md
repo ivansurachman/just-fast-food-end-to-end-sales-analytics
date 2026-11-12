@@ -88,6 +88,8 @@ Reads a generated dataset and writes a Markdown profile: overview, dimensions, o
 
 `profile` reads local paths only. It exits with an error if the folder has no manifests or files.
 
+Memory: `profile` loads the whole dataset, about 650 MB of RAM for the 45-day development window (540 thousand orders), roughly 1.2 GB per million orders. Use it on development windows, not on a full-scale month or year.
+
 ## Using a different config
 
 `--config` replaces the packaged default completely. Copy `src/jff_gen/default_config.yaml`, edit it, then pass it to both `dim` and `generate`. Business assumptions live there: base volume, weekday factors, regional profiles, channel mix, promos, lifecycle rates, and every defect rate.
@@ -115,6 +117,7 @@ Reads a generated dataset and writes a Markdown profile: overview, dimensions, o
 | `use either --date or --start/--end` | Both forms given |
 | `--end is before --start` | Reversed range |
 | `invalid date '...', expected YYYY-MM-DD` | Date typed in another format |
+| `invalid settings: scale: Input should be greater than 0` (similar for `n_branches`, `seed`) | A flag or config value outside its allowed range. Probabilities and rates must be between 0 and 1 |
 | `no manifests under ...` | `profile` pointed at a folder without generated data |
 
 Exit code 0 means success, 2 means a usage error. In PowerShell, continue a long command on the next line with a backtick, and quote paths that contain spaces.
