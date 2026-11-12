@@ -4,7 +4,7 @@ Status: design for Mentoring 1.
 
 ![Gold star schema](er_diagram.png)
 
-Panel B repeats `dim_date` and `dim_branch` only to keep the lines from crossing. They are the same tables as in panel A. Source: `er_diagram.dot`, rendered with `neato -n2 -Tsvg`.
+Panel B repeats `dim_date` and `dim_branch` only to keep the lines from crossing. They are the same tables as in panel A. Source: `er_diagram.dot`, rendered with `neato -n2 -Tpng`.
 
 ## Layers (provisional)
 
